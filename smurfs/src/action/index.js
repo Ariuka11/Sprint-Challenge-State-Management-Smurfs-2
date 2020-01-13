@@ -14,3 +14,17 @@ export const fetchingData = () => {
             })
     }
 }
+
+export const addingSmurf = (newSmurf) => {
+    return dispatch => {
+
+       axios.post(`http://localhost:3333/smurfs`, newSmurf)
+           .then(res => {
+               console.log(res)
+               dispatch({type: 'ADDING_SMURF_SUCCESSFUL', payload: res.data})
+           })
+           .catch(err => {
+               console.log(err)
+           })
+    }
+}
